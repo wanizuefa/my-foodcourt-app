@@ -58,12 +58,12 @@ export default function CustomerView({ user, apiBase }) {
     <div>
       <div style={{ background: 'white', padding: '20px', borderRadius: '10px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', marginBottom: '20px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
         <div>
-          <h3 style={{ margin: '0 0 10px 0' }}>👤 โปรไฟล์สมาชิก</h3>
+          <h3 style={{ margin: '0 0 10px 0' }}> โปรไฟล์สมาชิก</h3>
           <p style={{ margin: '5px 0' }}>ชื่อ: <b>{user.FullName}</b></p>
           <p style={{ margin: '5px 0' }}>แต้มสะสม: <b style={{ color: '#059669', fontSize: '18px' }}>{user.Points} Points</b> (ทุก 10 บาท = 1 แต้ม)</p>
         </div>
         <div style={{ borderLeft: '2px solid #e2e8f0', paddingLeft: '20px' }}>
-          <h3 style={{ margin: '0 0 10px 0' }}>🔔 การแจ้งเตือนล่าสุด</h3>
+          <h3 style={{ margin: '0 0 10px 0' }}> การแจ้งเตือนล่าสุด</h3>
           <div style={{ maxHeight: '100px', overflowY: 'auto' }}>
             {notifs.length === 0 ? <p style={{ color: '#94a3b8' }}>ไม่มีการแจ้งเตือน</p> : (
               notifs.slice(0, 3).map((n, i) => (
@@ -81,7 +81,7 @@ export default function CustomerView({ user, apiBase }) {
         <select value={selectedStore} onChange={e => setSelectedStore(Number(e.target.value))} style={{ padding: '8px', fontSize: '15px' }}>
           {stores.map(s => (
             <option key={s.StoreId} value={s.StoreId}>
-              {s.StoreName} {s.IsSuspended ? '🛑 (ถูกระงับ)' : !s.IsOpen ? '🔒 (ปิดให้บริการ)' : '✅ (เปิดปกติ)'}
+              {s.StoreName} {s.IsSuspended ? ' (ถูกระงับ)' : !s.IsOpen ? '(ปิดให้บริการ)' : '(เปิดปกติ)'}
             </option>
           ))}
         </select>

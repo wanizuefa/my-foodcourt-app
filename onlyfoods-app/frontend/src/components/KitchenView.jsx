@@ -26,9 +26,9 @@ export default function KitchenView({ user, apiBase }) {
 
   return (
     <div style={{ background: '#0f172a', color: 'white', padding: '25px', borderRadius: '12px' }}>
-      <h2>🍳 จอห้องครัว (Kitchen Display System - KDS)</h2>
+      <h2> จอห้องครัว (Kitchen Display System - KDS)</h2>
       <div style={{ background: '#1e293b', padding: '15px', borderRadius: '8px', marginBottom: '20px', borderLeft: '4px solid #0284c7' }}>
-        <h4 style={{ margin: '0 0 10px 0', color: '#38bdf8' }}>📊 ยอดรวมวัตถุดิบที่ต้องทำตอนนี้:</h4>
+        <h4 style={{ margin: '0 0 10px 0', color: '#38bdf8' }}> ยอดรวมวัตถุดิบที่ต้องทำตอนนี้:</h4>
         {summary.length === 0 ? <span>ไม่มีรายการค้างปรุง</span> : summary.map((s, i) => (
           <span key={i} style={{ background: '#0284c7', padding: '6px 12px', borderRadius: '20px', marginRight: '10px', fontSize: '14px', fontWeight: 'bold' }}>
             {s.ProductName}: {s.TotalQty} จาน

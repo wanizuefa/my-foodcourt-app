@@ -27,9 +27,9 @@ export default function CounterView({ user, apiBase }) {
 
   return (
     <div>
-      <h2>🛎️ พนักงานหน้าร้าน (Front Staff)</h2>
+      <h2> พนักงานหน้าร้าน (Front Staff)</h2>
       <div style={{ background: 'white', padding: '20px', borderRadius: '10px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', marginBottom: '25px' }}>
-        <h3 style={{ color: '#d97706', marginTop: 0 }}>🔍 ตรวจสอบสลิปชำระเงินที่รอยืนยัน</h3>
+        <h3 style={{ color: '#d97706', marginTop: 0 }}> ตรวจสอบสลิปชำระเงินที่รอยืนยัน</h3>
         <table border="0" cellPadding="10" style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead><tr style={{ background: '#fffbeb', textAlign: 'left' }}><th>คิว</th><th>ยอดชำระ</th><th>รูปสลิป</th><th>การจัดการ</th></tr></thead>
           <tbody>
@@ -38,7 +38,7 @@ export default function CounterView({ user, apiBase }) {
                 <tr key={o.OrderID} style={{ borderBottom: '1px solid #f1f5f9' }}>
                   <td><b>{o.QueueNo}</b></td>
                   <td><b>{o.TotalAmount} บาท</b></td>
-                  <td><a href={o.SlipUrl} target="_blank" rel="noreferrer" style={{ color: '#2563eb' }}>🔍 คลิกเปิดดูสลิป</a></td>
+                  <td><a href={o.SlipUrl} target="_blank" rel="noreferrer" style={{ color: '#2563eb' }}> คลิกเปิดดูสลิป</a></td>
                   <td>
                     <button onClick={() => verifySlip(o.OrderID, true)} style={{ background: '#22c55e', color: 'white', border: 'none', padding: '6px 12px', borderRadius: '4px', marginRight: '6px', cursor: 'pointer' }}>✅ สลิปถูกต้อง</button>
                     <button onClick={() => verifySlip(o.OrderID, false)} style={{ background: '#ef4444', color: 'white', border: 'none', padding: '6px 12px', borderRadius: '4px', cursor: 'pointer' }}>❌ ปฏิเสธสลิป</button>
@@ -51,7 +51,7 @@ export default function CounterView({ user, apiBase }) {
       </div>
 
       <div style={{ background: 'white', padding: '20px', borderRadius: '10px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-        <h3>📋 สถานะคิวและส่งมอบอาหาร</h3>
+        <h3> สถานะคิวและส่งมอบอาหาร</h3>
         <table border="0" cellPadding="10" style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead><tr style={{ background: '#f1f5f9', textAlign: 'left' }}><th>คิว</th><th>รายการอาหาร</th><th>สถานะ</th><th>การจัดการ</th></tr></thead>
           <tbody>

@@ -23,26 +23,26 @@ export default function OwnerView({ user, apiBase }) {
 
   return (
     <div>
-      <h2>🏪 แดชบอร์ดเจ้าของร้าน (Shop Owner)</h2>
+      <h2> แดชบอร์ดเจ้าของร้าน (Shop Owner)</h2>
       <div style={{ background: 'white', padding: '20px', borderRadius: '10px', marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <h3 style={{ margin: 0 }}>ร้าน: {dash.StoreName}</h3>
           <p style={{ margin: '5px 0' }}>สถานะร้าน: <b style={{ color: dash.IsOpen ? 'green' : 'red' }}>{dash.IsOpen ? '🟢 เปิดให้บริการ' : '🔴 ปิดร้าน'}</b></p>
         </div>
         <button onClick={toggleStore} style={{ padding: '10px 18px', background: dash.IsOpen ? '#ef4444' : '#22c55e', color: 'white', border: 'none', borderRadius: '6px', fontWeight: 'bold', cursor: 'pointer' }}>
-          {dash.IsOpen ? '🔒 ปิดร้านชั่วคราว' : '🔓 เปิดร้านค้า'}
+          {dash.IsOpen ? ' ปิดร้านชั่วคราว' : ' เปิดร้านค้า'}
         </button>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
         <div style={{ background: 'white', padding: '20px', borderRadius: '10px' }}>
-          <h4>💰 สรุปยอดขายร้านตนเอง</h4>
+          <h4> สรุปยอดขายร้านตนเอง</h4>
           <p style={{ fontSize: '24px', fontWeight: 'bold', color: '#059669', margin: '10px 0' }}>{dash.net_sales || 0} บาท</p>
           <p style={{ margin: 0, color: '#64748b' }}>ออเดอร์ที่สำเร็จแล้ว: {dash.total_orders || 0} รายการ</p>
         </div>
 
         <div style={{ background: 'white', padding: '20px', borderRadius: '10px' }}>
-          <h4>📦 จัดการสต็อกสินค้า (เปิด/ปิด เมนูหมด)</h4>
+          <h4>จัดการสต็อกสินค้า (เปิด/ปิด เมนูหมด)</h4>
           {products.map(p => (
             <div key={p.ProductId} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '14px' }}>
               <span>{p.ProductName}</span>
