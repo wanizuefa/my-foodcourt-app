@@ -10,10 +10,10 @@ const INITIAL_STORES = [
 ];
 
 const INITIAL_PRODUCTS = [
-  { id: 101, storeId: 1, name: 'ข้าวผัดกะเพราหมูกรอบ', price: 50, isOutOfStock: false, img: '🍲' },
-  { id: 102, storeId: 1, name: 'ข้าวผัดพริกแกงไก่ + ไข่ดาว', price: 55, isOutOfStock: false, img: '🍳' },
-  { id: 201, storeId: 2, name: 'ก๋วยเตี๋ยวเรือน้ำตกเนื้อเปื่อย', price: 50, isOutOfStock: false, img: '🍜' },
-  { id: 301, storeId: 3, name: 'ชาไทยเย็นเข้มข้น', price: 30, isOutOfStock: false, img: '🧋' }
+  { id: 101, storeId: 1, name: 'ข้าวผัดกะเพราหมูกรอบ', price: 50, isOutOfStock: false, img: '' },
+  { id: 102, storeId: 1, name: 'ข้าวผัดพริกแกงไก่ + ไข่ดาว', price: 55, isOutOfStock: false, img: '' },
+  { id: 201, storeId: 2, name: 'ก๋วยเตี๋ยวเรือน้ำตกเนื้อเปื่อย', price: 50, isOutOfStock: false, img: '' },
+  { id: 301, storeId: 3, name: 'ชาไทยเย็นเข้มข้น', price: 30, isOutOfStock: false, img: '' }
 ];
 
 const INITIAL_USERS = [
@@ -123,12 +123,12 @@ export default function App() {
             )}
 
             <button type="submit" style={{ width: '100%', background: '#007bff', color: '#fff', border: 'none', padding: '10px', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer', marginTop: '10px' }}>
-              {authTab === 'login' ? '🔑 เข้าสู่ระบบ' : '📝 ยืนยันการลงทะเบียน'}
+              {authTab === 'login' ? ' เข้าสู่ระบบ' : ' ยืนยันการลงทะเบียน'}
             </button>
           </form>
 
           <div style={{ marginTop: '20px', padding: '10px', background: '#e9ecef', borderRadius: '4px', fontSize: '11px', color: '#333' }}>
-            <strong>💡 บัญชีสำหรับทดสอบบทบาทต่างๆ (Password: 123)</strong>
+            <strong> บัญชีสำหรับทดสอบบทบาทต่างๆ (Password: 123)</strong>
             <ul style={{ paddingLeft: '15px', margin: '5px 0 0 0' }}>
               <li>ลูกค้า: <code>uefa01</code></li>
               <li>ครัว: <code>kitchen01</code> | ฟร้อนท์: <code>front01</code></li>
@@ -298,7 +298,7 @@ function CustomerView({ currentUser, stores, products, orders, setOrders, foodCo
 
       {tab === 'cart' && (
         <div style={{ background: '#fff', padding: '20px', borderRadius: '8px', border: '1px solid #ddd' }}>
-          <h3>🛒 รายการอาหารล่วงหน้าในตะกร้า</h3>
+          <h3> รายการอาหารล่วงหน้าในตะกร้า</h3>
           {cart.length === 0 ? <p>ไม่มีรายการอาหารในตะกร้า</p> : (
             <div>
               {cart.map((item, idx) => (
@@ -316,7 +316,7 @@ function CustomerView({ currentUser, stores, products, orders, setOrders, foodCo
               </div>
               <h3 style={{ textAlign: 'right', color: '#28a745' }}>ยอดรวมสุทธิ: {cart.reduce((s, i) => s + i.price, 0)} บาท</h3>
               <button onClick={handleCheckout} style={{ width: '100%', background: '#28a745', color: '#fff', padding: '12px', border: 'none', borderRadius: '4px', fontSize: '16px', fontWeight: 'bold', cursor: 'pointer' }}>
-                📲 ชำระเงินออนไลน์ & ยืนยันออเดอร์
+                 ชำระเงินออนไลน์ & ยืนยันออเดอร์
               </button>
             </div>
           )}
@@ -325,7 +325,7 @@ function CustomerView({ currentUser, stores, products, orders, setOrders, foodCo
 
       {tab === 'queue' && (
         <div>
-          <h3>🔢 ติดตามคิวคำสั่งซื้อปัจจุบัน</h3>
+          <h3> ติดตามคิวคำสั่งซื้อปัจจุบัน</h3>
           {userOrders.filter(o => o.status !== 'Completed' && o.status !== 'Cancelled').length === 0 ? <p>ไม่มีคิวอาหารที่กำลังรอดำเนินการ</p> : (
             userOrders.filter(o => o.status !== 'Completed' && o.status !== 'Cancelled').map(o => (
               <div key={o.id} style={{ background: '#fff', borderLeft: '6px solid #007bff', padding: '15px', borderRadius: '6px', marginBottom: '15px', border: '1px solid #ccc' }}>
@@ -352,7 +352,7 @@ function CustomerView({ currentUser, stores, products, orders, setOrders, foodCo
 
       {tab === 'history' && (
         <div>
-          <h3>📜 ประวัติการสั่งซื้อย้อนหลัง</h3>
+          <h3> ประวัติการสั่งซื้อย้อนหลัง</h3>
           {userOrders.map(o => (
             <div key={o.id} style={{ background: '#fff', padding: '15px', borderRadius: '6px', marginBottom: '10px', border: '1px solid #ddd' }}>
               <div style={{ fontWeight: 'bold' }}>ออเดอร์ #{o.id} - คิว #{o.queueNo} ({o.storeName})</div>
@@ -382,7 +382,7 @@ function ReviewForm({ onSubmit }) {
   const [comment, setComment] = useState('');
   return (
     <div>
-      <small style={{ fontWeight: 'bold' }}>✍️ เขียนรีวิวและให้คะแนนอาหาร:</small>
+      <small style={{ fontWeight: 'bold' }}> เขียนรีวิวและให้คะแนนอาหาร:</small>
       <div style={{ display: 'flex', gap: '10px', marginTop: '5px' }}>
         <select value={rating} onChange={e => setRating(Number(e.target.value))} style={{ padding: '4px' }}>
           <option value={5}>5 ดาว ⭐⭐⭐⭐⭐</option>
@@ -415,13 +415,13 @@ function KitchenView({ currentUser, orders, setOrders, products, setProducts }) 
 
   return (
     <div style={{ background: '#fff', padding: '20px', borderRadius: '8px', border: '1px solid #ddd' }}>
-      <h3>👨‍🍳 จอแสดงรายการออเดอร์ในครัว (เรียงตามคิว)</h3>
+      <h3> จอแสดงรายการออเดอร์ในครัว (เรียงตามคิว)</h3>
       <div style={{ background: '#f8f9fa', padding: '10px', borderRadius: '6px', marginBottom: '20px' }}>
-        <strong>📦 ตรวจสอบวัตถุดิบเมนูในร้าน:</strong>
+        <strong> ตรวจสอบวัตถุดิบเมนูในร้าน:</strong>
         <div style={{ display: 'flex', gap: '10px', marginTop: '8px', flexWrap: 'wrap' }}>
           {products.filter(p => p.storeId === (currentUser.storeId || 1)).map(p => (
             <button key={p.id} onClick={() => reportOutOfStock(p.id)} style={{ background: p.isOutOfStock ? '#dc3545' : '#ffc107', color: p.isOutOfStock ? '#fff' : '#000', border: 'none', padding: '6px 10px', borderRadius: '4px', fontSize: '12px', cursor: 'pointer' }}>
-              {p.name} {p.isOutOfStock ? '(แจ้งหมดแล้ว)' : '⚠️ กดแจ้งของหมด'}
+              {p.name} {p.isOutOfStock ? '(แจ้งหมดแล้ว)' : ' กดแจ้งของหมด'}
             </button>
           ))}
         </div>
@@ -460,7 +460,7 @@ function FrontStaffView({ currentUser, orders, setOrders, products, setProducts,
   const storeOrders = orders.filter(o => o.storeId === (currentUser.storeId || 1));
 
   const handleCallQueue = (order) => {
-    addNotification(order.customerId, `🔔 คิว #${order.queueNo} (${order.storeName}) อาหารปรุงเสร็จแล้ว พร้อมรับที่หน้าร้าน!`);
+    addNotification(order.customerId, ` คิว #${order.queueNo} (${order.storeName}) อาหารปรุงเสร็จแล้ว พร้อมรับที่หน้าร้าน!`);
     alert(`ส่ง Push Notification เรียกคิว #${order.queueNo} เรียบร้อยแล้ว`);
   };
 
@@ -477,18 +477,18 @@ function FrontStaffView({ currentUser, orders, setOrders, products, setProducts,
 
   const handleNotifyOutOfStockOrder = (order) => {
     setOrders(orders.map(o => o.id === order.id ? { ...o, outOfStockAlert: true } : o));
-    addNotification(order.customerId, `⚠️ ออเดอร์ #${order.queueNo} วัตถุดิบหมด กรุณายกเลิกหรือเปลี่ยนเมนูภายใน 30 นาที`);
+    addNotification(order.customerId, ` ออเดอร์ #${order.queueNo} วัตถุดิบหมด กรุณายกเลิกหรือเปลี่ยนเมนูภายใน 30 นาที`);
     alert('ส่งการแจ้งเตือนเปลี่ยน/ยกเลิกเมนูให้ลูกค้าแล้ว');
   };
 
   return (
     <div style={{ background: '#fff', padding: '20px', borderRadius: '8px', border: '1px solid #ddd' }}>
-      <h3>💁 จอผู้จัดการฝ่ายบริการหน้าร้าน</h3>
-      <h4>📢 คิวอาหารรอส่งมอบ & เรียกคิว</h4>
+      <h3> จอผู้จัดการฝ่ายบริการหน้าร้าน</h3>
+      <h4>คิวอาหารรอส่งมอบ & เรียกคิว</h4>
       {storeOrders.filter(o => o.status === 'Ready').length === 0 ? <p style={{ fontSize: '13px', color: '#666' }}>ไม่มีรายการคิวที่ปรุงเสร็จแล้วขณะนี้</p> : (
         storeOrders.filter(o => o.status === 'Ready').map(o => (
           <div key={o.id} style={{ border: '2px solid #28a745', background: '#eafaf1', padding: '15px', borderRadius: '8px', marginBottom: '10px' }}>
-            <h4>🔔 คิว #{o.queueNo} - {o.customerName}</h4>
+            <h4> คิว #{o.queueNo} - {o.customerName}</h4>
             <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
               <button onClick={() => handleCallQueue(o)} style={{ background: '#ff9800', color: '#fff', border: 'none', padding: '8px 14px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>📢 เรียกคิว</button>
               <button onClick={() => handleDeliver(o.id)} style={{ background: '#28a745', color: '#fff', border: 'none', padding: '8px 14px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>✅ ส่งมอบแล้ว</button>
@@ -498,7 +498,7 @@ function FrontStaffView({ currentUser, orders, setOrders, products, setProducts,
         ))
       )}
       <hr />
-      <h4>⚠️ จัดการกรณีวัตถุดิบหมด และแจ้งเตือนลูกค้า</h4>
+      <h4> จัดการกรณีวัตถุดิบหมด และแจ้งเตือนลูกค้า</h4>
       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
         {storeOrders.filter(o => o.status === 'Pending').map(o => (
           <div key={o.id} style={{ border: '1px solid #ccc', padding: '10px', borderRadius: '4px', background: '#f8f9fa' }}>
@@ -521,7 +521,7 @@ function ShopOwnerView({ currentUser, stores, setStores, products, setProducts, 
   const myProducts = products.filter(p => p.storeId === myStore.id);
   const myOrders = orders.filter(o => o.storeId === myStore.id && o.status === 'Completed');
 
-  const [newMenu, setNewMenu] = useState({ name: '', price: '', img: '🍲' });
+  const [newMenu, setNewMenu] = useState({ name: '', price: '', img: '' });
 
   const toggleStoreStatus = () => {
     setStores(stores.map(s => s.id === myStore.id ? { ...s, status: s.status === 'Open' ? 'Closed' : 'Open' } : s));
@@ -532,7 +532,7 @@ function ShopOwnerView({ currentUser, stores, setStores, products, setProducts, 
     if (!newMenu.name || !newMenu.price) return;
     const p = { id: Date.now(), storeId: myStore.id, name: newMenu.name, price: Number(newMenu.price), isOutOfStock: false, img: newMenu.img };
     setProducts([...products, p]);
-    setNewMenu({ name: '', price: '', img: '🍲' });
+    setNewMenu({ name: '', price: '', img: '' });
     alert('เพิ่มเมนูอาหารเรียบร้อยแล้ว!');
   };
 
@@ -545,24 +545,24 @@ function ShopOwnerView({ currentUser, stores, setStores, products, setProducts, 
   return (
     <div style={{ background: '#fff', padding: '20px', borderRadius: '8px', border: '1px solid #ddd' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-        <h3>🏪 แผงควบคุมเจ้าของร้าน: {myStore.name}</h3>
+        <h3> แผงควบคุมเจ้าของร้าน: {myStore.name}</h3>
         <button onClick={toggleStoreStatus} style={{ background: myStore.status === 'Open' ? '#dc3545' : '#28a745', color: '#fff', border: 'none', padding: '8px 16px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>
           {myStore.status === 'Open' ? '🔴 กดปิดรับออเดอร์ร้าน' : '🟢 กดเปิดรับออเดอร์ร้าน'}
         </button>
       </div>
 
       <div style={{ background: '#d4edda', color: '#155724', padding: '15px', borderRadius: '6px', marginBottom: '20px' }}>
-        📊 <strong>ยอดขายรวมวันนี้: {totalSales} บาท</strong> (จากออเดอร์เสร็จสิ้น {myOrders.length} รายการ)
+         <strong>ยอดขายรวมวันนี้: {totalSales} บาท</strong> (จากออเดอร์เสร็จสิ้น {myOrders.length} รายการ)
       </div>
 
-      <h4>➕ เพิ่ม/แก้ไขเมนูอาหาร</h4>
+      <h4> เพิ่ม/แก้ไขเมนูอาหาร</h4>
       <form onSubmit={handleAddMenu} style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
         <input type="text" placeholder="ชื่อเมนู" value={newMenu.name} onChange={e => setNewMenu({ ...newMenu, name: e.target.value })} style={{ flex: 2, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} />
         <input type="number" placeholder="ราคา (บาท)" value={newMenu.price} onChange={e => setNewMenu({ ...newMenu, price: e.target.value })} style={{ flex: 1, padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} />
         <button type="submit" style={{ background: '#28a745', color: '#fff', border: 'none', padding: '8px 16px', borderRadius: '4px', cursor: 'pointer' }}>บันทึกเมนู</button>
       </form>
 
-      <h4>📋 รายการเมนูทั้งหมดของร้าน</h4>
+      <h4> รายการเมนูทั้งหมดของร้าน</h4>
       <div style={{ display: 'grid', gap: '10px' }}>
         {myProducts.map(p => (
           <div key={p.id} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px', border: '1px solid #eee', borderRadius: '4px' }}>
@@ -583,15 +583,15 @@ function AccountantView({ orders, stores, cancellationLogs }) {
   const totalRevenue = completedOrders.reduce((sum, o) => sum + o.totalPrice, 0);
 
   const handleExportReport = () => {
-    alert('📥 ส่งออกรายงานทางการเงิน เรียบร้อยแล้ว!');
+    alert('ส่งออกรายงานทางการเงิน เรียบร้อยแล้ว!');
   };
 
   return (
     <div style={{ background: '#fff', padding: '20px', borderRadius: '8px', border: '1px solid #ddd' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
-        <h3>📊 ระบบตรวจสอบบัญชีและการเงิน (สถาบัน KMITL)</h3>
+        <h3>ระบบตรวจสอบบัญชีและการเงิน (สถาบัน KMITL)</h3>
         <button onClick={handleExportReport} style={{ background: '#17a2b8', color: '#fff', border: 'none', padding: '8px 16px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>
-          📥 ส่งออกรายงานทางการเงิน
+           ส่งออกรายงานทางการเงิน
         </button>
       </div>
 
@@ -610,7 +610,7 @@ function AccountantView({ orders, stores, cancellationLogs }) {
         </div>
       </div>
 
-      <h4>🏢 สรุปยอดขายรายร้านค้าประจำเดือน (คำนวณค่าเช่า)</h4>
+      <h4> สรุปยอดขายรายร้านค้าประจำเดือน (คำนวณค่าเช่า)</h4>
       <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '20px' }}>
         <thead>
           <tr style={{ background: '#f1f1f1', textAlign: 'left' }}>
@@ -633,7 +633,7 @@ function AccountantView({ orders, stores, cancellationLogs }) {
         </tbody>
       </table>
 
-      <h4>🔒 ประวัติการยกเลิกออเดอร์ (Audit Trail)</h4>
+      <h4>ประวัติการยกเลิกออเดอร์ (Audit Trail)</h4>
       {cancellationLogs.length === 0 ? <p style={{ fontSize: '13px', color: '#666' }}>ไม่มีประวัติการยกเลิกออเดอร์</p> : (
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
@@ -709,7 +709,7 @@ function ExecutiveView({ stores, setStores, users, setUsers, foodCourtOpen, setF
     
     // ตั้งค่า default storeId ให้ฟอร์มสร้างพนักงานเป็นร้านใหม่ทันที
     setNewStaff(prev => ({ ...prev, storeId: createdStore.id }));
-    alert(`🏪 สร้างร้าน "${createdStore.name}" สำเร็จ!`);
+    alert(` สร้างร้าน "${createdStore.name}" สำเร็จ!`);
   };
 
   // ฟังก์ชันสร้างบัญชีพนักงานประจำร้าน
@@ -733,16 +733,16 @@ function ExecutiveView({ stores, setStores, users, setUsers, foodCourtOpen, setF
 
     setUsers([...users, createdUser]);
     setNewStaff({ username: '', password: '', name: '', role: 'Kitchen', storeId: stores[0]?.id || 1 });
-    alert(`👤 เพิ่มบัญชี ${createdUser.role} สำหรับผู้ใช้ "${createdUser.name}" เรียบร้อยแล้ว!`);
+    alert(`เพิ่มบัญชี ${createdUser.role} สำหรับผู้ใช้ "${createdUser.name}" เรียบร้อยแล้ว!`);
   };
 
   return (
     <div style={{ background: '#fff', padding: '20px', borderRadius: '8px', border: '1px solid #ddd' }}>
-      <h3>👔 แดชบอร์ดผู้บริหารศูนย์อาหาร (Executive View)</h3>
+      <h3> แดชบอร์ดผู้บริหารศูนย์อาหาร (Executive View)</h3>
 
       {/* Central System Toggle & Announcements */}
       <div style={{ background: '#e3f2fd', padding: '15px', borderRadius: '6px', marginBottom: '20px' }}>
-        <h4>⚙️ ตั้งค่าระบบส่วนกลาง</h4>
+        <h4> ตั้งค่าระบบส่วนกลาง</h4>
         <button onClick={toggleCentralFoodCourt} style={{ background: foodCourtOpen ? '#dc3545' : '#28a745', color: '#fff', border: 'none', padding: '8px 16px', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold' }}>
           {foodCourtOpen ? '🛑 สั่งปิดศูนย์อาหารส่วนกลาง' : '🟢 สั่งเปิดศูนย์อาหารส่วนกลาง'}
         </button>
@@ -755,7 +755,7 @@ function ExecutiveView({ stores, setStores, users, setUsers, foodCourtOpen, setF
 
       {/* ส่วนที่เพิ่มใหม่ 1: ฟอร์มสร้างร้านค้าใหม่ */}
       <div style={{ background: '#f8f9fa', padding: '15px', borderRadius: '6px', marginBottom: '20px', border: '1px solid #e9ecef' }}>
-        <h4>🏪 เพิ่มร้านค้าใหม่ในศูนย์อาหาร</h4>
+        <h4> เพิ่มร้านค้าใหม่ในศูนย์อาหาร</h4>
         <form onSubmit={handleAddStore} style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '10px' }}>
           <input type="text" placeholder="ชื่อร้านค้า" required value={newStore.name} onChange={e => setNewStore({ ...newStore, name: e.target.value })} style={{ padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} />
           <select value={newStore.category} onChange={e => setNewStore({ ...newStore, category: e.target.value })} style={{ padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }}>
@@ -766,14 +766,14 @@ function ExecutiveView({ stores, setStores, users, setUsers, foodCourtOpen, setF
             <option value="อาหารทานเล่น">อาหารทานเล่น</option>
           </select>
           <button type="submit" style={{ background: '#28a745', color: '#fff', border: 'none', padding: '8px', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>
-            ➕ สร้างร้านค้า
+             สร้างร้านค้า
           </button>
         </form>
       </div>
 
       {/* ส่วนที่เพิ่มใหม่ 2: ฟอร์มออกบัญชีพนักงานประจำร้าน */}
       <div style={{ background: '#f8f9fa', padding: '15px', borderRadius: '6px', marginBottom: '20px', border: '1px solid #e9ecef' }}>
-        <h4>👤 ออกบัญชีพนักงาน / เจ้าของร้านใหม่</h4>
+        <h4> ออกบัญชีพนักงาน / เจ้าของร้านใหม่</h4>
         <form onSubmit={handleAddStaff} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr auto', gap: '8px', alignItems: 'center' }}>
           <input type="text" placeholder="ชื่อ-นามสกุล" required value={newStaff.name} onChange={e => setNewStaff({ ...newStaff, name: e.target.value })} style={{ padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} />
           <input type="text" placeholder="Username" required value={newStaff.username} onChange={e => setNewStaff({ ...newStaff, username: e.target.value })} style={{ padding: '8px', border: '1px solid #ccc', borderRadius: '4px' }} />
@@ -792,13 +792,13 @@ function ExecutiveView({ stores, setStores, users, setUsers, foodCourtOpen, setF
           </select>
 
           <button type="submit" style={{ background: '#007bff', color: '#fff', border: 'none', padding: '8px 12px', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>
-            🔑 สร้างบัญชี
+             สร้างบัญชี
           </button>
         </form>
       </div>
 
       {/* Store Rights Management */}
-      <h4>🛡️ จัดการข้อมูลสิทธิ์และรายการร้านค้า</h4>
+      <h4> จัดการข้อมูลสิทธิ์และรายการร้านค้า</h4>
       <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '20px' }}>
         <thead>
           <tr style={{ background: '#f1f1f1', textAlign: 'left' }}>
@@ -829,7 +829,7 @@ function ExecutiveView({ stores, setStores, users, setUsers, foodCourtOpen, setF
       </table>
 
       {/* รายชื่อพนักงานในระบบ */}
-      <h4>👥 รายชื่อพนักงานประจำร้านค้าในระบบ</h4>
+      <h4>รายชื่อพนักงานประจำร้านค้าในระบบ</h4>
       <table style={{ width: '100%', borderCollapse: 'collapse' }}>
         <thead>
           <tr style={{ background: '#f1f1f1', textAlign: 'left' }}>
