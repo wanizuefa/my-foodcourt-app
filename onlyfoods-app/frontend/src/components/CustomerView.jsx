@@ -89,16 +89,16 @@ export default function CustomerView({ user, apiBase }) {
 
       {activeStore.IsSuspended ? (
         <div style={{ background: '#fee2e2', color: '#991b1b', padding: '20px', borderRadius: '10px', textAlign: 'center', fontWeight: 'bold' }}>
-          🛑 ร้านค้านี้ถูกระงับสิทธิ์การจำหน่ายชั่วคราวโดยผู้บริหาร ไม่สามารถทำรายการได้
+           ร้านค้านี้ถูกระงับสิทธิ์การจำหน่ายชั่วคราวโดยผู้บริหาร ไม่สามารถทำรายการได้
         </div>
       ) : !activeStore.IsOpen ? (
         <div style={{ background: '#fef3c7', color: '#92400e', padding: '20px', borderRadius: '10px', textAlign: 'center', fontWeight: 'bold' }}>
-          🔒 ร้านค้านี้ปิดให้บริการชั่วคราว
+           ร้านค้านี้ปิดให้บริการชั่วคราว
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '20px' }}>
           <div>
-            <h3>🍱 เมนูอาหาร ({activeStore.StoreName})</h3>
+            <h3> เมนูอาหาร ({activeStore.StoreName})</h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '15px' }}>
               {products.map(p => (
                 <div key={p.ProductId} style={{ background: 'white', padding: '15px', borderRadius: '8px', border: '1px solid #e2e8f0', boxShadow: '0 2px 4px rgba(0,0,0,0.02)' }}>
@@ -115,7 +115,7 @@ export default function CustomerView({ user, apiBase }) {
           </div>
 
           <div style={{ background: 'white', padding: '20px', borderRadius: '10px', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
-            <h3>🛒 ตะกร้าสั่งซื้อ</h3>
+            <h3> ตะกร้าสั่งซื้อ</h3>
             {cart.length === 0 ? <p style={{ color: '#94a3b8' }}>ยังไม่มีรายการในตะกร้า</p> : (
               <div>
                 {cart.map((item, idx) => (
@@ -140,7 +140,7 @@ export default function CustomerView({ user, apiBase }) {
       )}
 
       <hr style={{ margin: '30px 0', border: 'none', borderTop: '1px solid #cbd5e1' }} />
-      <h3>📜 ประวัติและสถานะคำสั่งซื้อของฉัน</h3>
+      <h3> ประวัติและสถานะคำสั่งซื้อของฉัน</h3>
       <table border="0" cellPadding="12" style={{ width: '100%', background: 'white', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.05)' }}>
         <thead>
           <tr style={{ background: '#e2e8f0', textAlign: 'left' }}><th>หมายเลขคิว</th><th>ร้านค้า</th><th>รายการ</th><th>ยอดเงิน</th><th>สถานะออเดอร์</th><th>หมายเหตุ</th></tr>
